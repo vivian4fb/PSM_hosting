@@ -1,6 +1,6 @@
 """psmgrating -- PSM, PSM*, Kogelnik and TCWT two-wave models and a rigorous
 coupled-wave reference for slanted, absorbing planar volume gratings, in the
-conventions of Brotherton-Ratcliffe and Amos Sureshkumar (2026).
+conventions of Brotherton-Ratcliffe and Vivian Sureshkumar (2026).
 
 Independent implementation validated against the paper's printed values; the
 authors' own deposit (release v1.1) is a separate code base.
