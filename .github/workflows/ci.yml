@@ -27,4 +27,4 @@ jobs:
       - uses: actions/checkout@v4
       - name: forbid the mis-expansions that exist in the archive
         run: |
-          ! grep -rIn --exclude-dir=.git -E "Primary Smith|co-originator" . || (echo "forbidden wording found" && exit 1)
+          ! grep -rIn --exclude-dir=.git --exclude-dir=.github -E "Primary Smith|co-originator" . || (echo "forbidden wording found" && exit 1)
