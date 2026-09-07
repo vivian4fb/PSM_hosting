@@ -1,5 +1,5 @@
 # VENDORED UNCHANGED from Code2/1_Optics/Research/DBR_volume_gratings/05 Aug files/code/universal_models.py
-# Author: Vivian Amos Sureshkumar (reconstruction project, 2026). Kept for parity tests only;
+# Author: Vivian Sureshkumar (reconstruction project, 2026). Kept for parity tests only;
 # the package code in psmgrating/ follows the September 2026 paper conventions instead.
 """
 universal_models.py  (Session 11, 2026-08-05)

@@ -9,7 +9,7 @@ description = "PSM, PSM*, Kogelnik and TCWT two-wave models plus a rigorous RCWA
 readme = "../README.md"
 requires-python = ">=3.10"
 license = {text = "MIT"}
-authors = [{name = "Vivian Amos Sureshkumar"}]
+authors = [{name = "Vivian Sureshkumar"}]
 dependencies = ["numpy>=1.24"]
 
 [project.optional-dependencies]

@@ -1,4 +1,4 @@
-// Geometric and material conventions of Brotherton-Ratcliffe & Amos (2026).
+// Geometric and material conventions of Brotherton-Ratcliffe & Vivian Sureshkumar (2026).
 // Mirrors python/psmgrating/conventions.py; equation numbers are the paper's.
 // Units: metres and radians.
 

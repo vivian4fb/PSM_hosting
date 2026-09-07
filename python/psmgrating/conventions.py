@@ -1,6 +1,6 @@
 """psmgrating.conventions -- single source of truth for the paper's conventions.
 
-Paper: D. Brotherton-Ratcliffe and V. Amos Sureshkumar, "Slanted planar volume
+Paper: D. Brotherton-Ratcliffe and V. Sureshkumar, "Slanted planar volume
 gratings: parallel-stacked-mirror models versus traditional coupled wave
 descriptions" (2026).  Equation numbers below refer to that paper.
 

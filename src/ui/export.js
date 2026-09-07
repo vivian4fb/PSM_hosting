@@ -9,7 +9,7 @@ export function csvText(state, lamNm, curves, models, geom) {
   for (const m of models) if (curves[m]) { cols.push(m); keys.push(m); }
   for (const m of models) if (curves[m] && curves.rcwa) cols.push(`delta_${m}`);
   const head = [
-    `# Volume Grating Explorer v${VERSION} — independent implementation of Brotherton-Ratcliffe & Amos (2026)`,
+    `# Volume Grating Explorer v${VERSION} — independent implementation of Brotherton-Ratcliffe & Vivian Sureshkumar (2026)`,
     `# geometry=${geom} ${Object.entries(state).map(([k, v]) => `${k}=${v}`).join(' ')}`,
     `# link=${location.href}`,
     cols.join(','),

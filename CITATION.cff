@@ -3,7 +3,7 @@ title: Volume Grating Explorer (psmgrating)
 message: If you use this software, please cite the paper below and this repository.
 type: software
 authors:
-  - family-names: Amos Sureshkumar
+  - family-names: Sureshkumar
     given-names: Vivian
     affiliation: Holography Research Group, De Montfort University, Leicester, UK
 version: 0.1.0
@@ -21,7 +21,7 @@ references:
     authors:
       - family-names: Brotherton-Ratcliffe
         given-names: David
-      - family-names: Amos Sureshkumar
+      - family-names: Sureshkumar
         given-names: Vivian
     year: 2026
     notes: manuscript, submission pending; DOI to be added at publication

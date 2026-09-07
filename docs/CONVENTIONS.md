@@ -1,7 +1,7 @@
 # Conventions
 
 Single source of truth: `python/psmgrating/conventions.py`, mirrored by `src/models/geometry.js`.
-Equation numbers refer to Brotherton-Ratcliffe & Amos Sureshkumar (2026).
+Equation numbers refer to Brotherton-Ratcliffe & Vivian Sureshkumar (2026).
 
 | Quantity | Definition | Eq. | Trap it replaces |
 |---|---|---|---|

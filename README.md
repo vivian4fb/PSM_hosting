@@ -2,7 +2,7 @@
 
 An interactive, browser-native companion to
 
-> D. Brotherton-Ratcliffe and V. Amos Sureshkumar, *Slanted planar volume gratings:
+> D. Brotherton-Ratcliffe and V. Sureshkumar, *Slanted planar volume gratings:
 > parallel-stacked-mirror models versus traditional coupled wave descriptions* (2026, manuscript).
 
 Four two-wave descriptions of a slanted, absorbing planar volume grating — **PSM**, **PSM\***,
