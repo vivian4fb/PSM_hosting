@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "psmgrating"
+version = "0.1.0"
+description = "PSM, PSM*, Kogelnik and TCWT two-wave models plus a rigorous RCWA reference for slanted absorbing planar volume gratings"
+readme = "../README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [{name = "Vivian Amos Sureshkumar"}]
+dependencies = ["numpy>=1.24"]
+
+[project.optional-dependencies]
+test = ["pytest>=7", "scipy>=1.10"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["psmgrating*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Volume Grating Explorer</title>
+<meta name="description" content="PSM, PSM*, Kogelnik and truncated coupled-wave models of slanted absorbing volume gratings against a rigorous coupled-wave reference, computed live in the browser.">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="vendor/uPlot.min.css">
+<style>
+:root {
+  --bg: #f6f5f0; --card: #ffffff; --ink: #1d1d1b; --muted: #6b6b66; --line: #dcdad2;
+  --accent: #178a5e; --ok: #178a5e; --warn: #b7791f; --bad: #a63d2f; --info: #2f4fb8;
+  --shadow: 0 1px 2px rgba(0,0,0,0.06);
+  color-scheme: light;
+}
+:root[data-theme="dark"] {
+  --bg: #17181b; --card: #1f2125; --ink: #e8e6df; --muted: #a0a6b0; --line: #34373d;
+  --accent: #1ba07f; --ok: #1ba07f; --warn: #d4a017; --bad: #cf4f55; --info: #4f73e3;
+  --shadow: 0 1px 2px rgba(0,0,0,0.4);
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #17181b; --card: #1f2125; --ink: #e8e6df; --muted: #a0a6b0; --line: #34373d;
+    --accent: #1ba07f; --ok: #1ba07f; --warn: #d4a017; --bad: #cf4f55; --info: #4f73e3;
+    --shadow: 0 1px 2px rgba(0,0,0,0.4);
+    color-scheme: dark;
+  }
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; background: var(--bg); color: var(--ink); }
+body { font: 15px/1.5 Charter, "Sitka Text", Cambria, Georgia, serif; }
+header { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; padding: 1.2rem 1.5rem 0.6rem; border-bottom: 1px solid var(--line); }
+header h1 { margin: 0; font-size: 1.5rem; letter-spacing: 0.01em; }
+header .sub { margin: 0.2rem 0 0; color: var(--muted); max-width: 60ch; }
+.hdr-actions { display: flex; gap: 0.6rem; align-items: center; white-space: nowrap; }
+main { display: grid; grid-template-columns: 350px minmax(0, 1fr); gap: 1rem; padding: 1rem 1.5rem; }
+aside { min-width: 0; }
+#results { min-width: 0; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 0.9rem 1rem; margin-bottom: 1rem; box-shadow: var(--shadow); }
+.card h3 { margin: 0 0 0.5rem; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); font-family: ui-monospace, "Cascadia Mono", Consolas, monospace; font-weight: 600; }
+.ctl { display: grid; grid-template-columns: 1fr 80px; gap: 0.15rem 0.5rem; align-items: center; margin: 0.35rem 0; }
+.ctl label, .ctl > span { grid-column: 1 / 3; font-size: 0.9rem; }
+.ctl input[type=range] { width: 100%; accent-color: var(--accent); }
+.ctl input[type=number], .ctl select { width: 100%; font: inherit; font-size: 0.85rem; padding: 0.15rem 0.3rem; border: 1px solid var(--line); border-radius: 4px; background: var(--bg); color: var(--ink); }
+.ctl .hint, .hint { grid-column: 1 / 3; color: var(--muted); font-size: 0.8rem; }
+.radios { grid-column: 1 / 3; display: flex; gap: 1rem; }
+.checks { display: flex; flex-wrap: wrap; gap: 0.4rem 1rem; margin-bottom: 0.4rem; }
+select#preset { width: 100%; font: inherit; font-size: 0.9rem; padding: 0.25rem; border: 1px solid var(--line); border-radius: 4px; background: var(--bg); color: var(--ink); }
+button { font: inherit; font-size: 0.85rem; padding: 0.3rem 0.7rem; border: 1px solid var(--line); border-radius: 6px; background: var(--card); color: var(--ink); cursor: pointer; }
+button:hover { border-color: var(--accent); }
+button.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+.actions { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.6rem; }
+.status-row { display: flex; align-items: center; gap: 0.8rem; min-height: 1.6rem; margin-bottom: 0.3rem; font-size: 0.85rem; }
+progress { width: 160px; height: 8px; accent-color: var(--accent); }
+.muted { color: var(--muted); }
+#plot-top, #plot-bot { width: 100%; }
+.u-legend { font-family: ui-monospace, "Cascadia Mono", Consolas, monospace; font-size: 0.8rem; }
+#verdict p { margin: 0.4rem 0; padding: 0.35rem 0.6rem; border-left: 4px solid var(--line); background: color-mix(in srgb, var(--card) 92%, var(--ink) 8%); border-radius: 0 4px 4px 0; font-size: 0.9rem; }
+#verdict p.v-ok { border-color: var(--ok); }
+#verdict p.v-warn { border-color: var(--warn); }
+#verdict p.v-bad { border-color: var(--bad); }
+#verdict p.v-info { border-color: var(--info); }
+table { border-collapse: collapse; width: 100%; font-size: 0.85rem; font-family: ui-monospace, "Cascadia Mono", Consolas, monospace; margin-top: 0.5rem; }
+th, td { text-align: left; padding: 0.25rem 0.5rem; border-bottom: 1px solid var(--line); }
+th { color: var(--muted); font-weight: 600; }
+#about p { max-width: 80ch; }
+#about ol { max-width: 80ch; padding-left: 1.2rem; }
+#about code { font-family: ui-monospace, "Cascadia Mono", Consolas, monospace; font-size: 0.85em; }
+footer { padding: 0.8rem 1.5rem 1.5rem; color: var(--muted); font-size: 0.8rem; border-top: 1px solid var(--line); }
+kbd { font-family: ui-monospace, Consolas, monospace; font-size: 0.85em; border: 1px solid var(--line); border-radius: 3px; padding: 0 0.3em; }
+@media (max-width: 900px) {
+  main { grid-template-columns: 1fr; padding: 0.8rem; }
+  header { flex-direction: column; }
+}
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <h1>Volume Grating Explorer</h1>
+    <p class="sub">PSM, PSM*, Kogelnik and truncated coupled-wave theory against a rigorous coupled-wave reference for slanted, absorbing planar volume gratings. Every curve is computed in your browser.</p>
+  </div>
+  <div class="hdr-actions">
+    <button id="theme-toggle" type="button">Dark mode</button>
+    <a href="#about">About</a>
+  </div>
+</header>
+<main>
+  <aside>
+    <section class="card">
+      <h3>Paper figures</h3>
+      <select id="preset" aria-label="Load a configuration from the paper"></select>
+      <p id="preset-caption" class="hint"></p>
+    </section>
+    <div id="ctl-root"></div>
+  </aside>
+  <section id="results">
+    <div class="card">
+      <div class="status-row"><span id="status" class="muted">starting…</span><progress id="prog" max="100" value="0" hidden></progress></div>
+      <div id="plot-top" role="img" aria-label="Diffraction efficiency versus replay wavelength"></div>
+      <div id="plot-bot" role="img" aria-label="Absolute difference between each model and the rigorous curve"></div>
+      <div class="actions">
+        <button id="btn-csv" type="button">Download CSV</button>
+        <button id="btn-png" type="button">Download PNG</button>
+        <button id="btn-link" type="button">Copy link</button>
+        <button id="btn-py" type="button">Copy Python</button>
+        <button id="btn-verify" type="button" class="primary">Verify at L = 10</button>
+        <button id="btn-adm" type="button">Check admissibility (L = 4 vs 8)</button>
+      </div>
+    </div>
+    <div class="card">
+      <h3>Which model?</h3>
+      <div id="verdict"></div>
+      <div id="metrics"></div>
+    </div>
+    <div class="card" id="about">
+      <h3>About</h3>
+      <p><strong>What this is.</strong> An interactive companion to <em>Slanted planar volume gratings: parallel-stacked-mirror models versus traditional coupled wave descriptions</em> by David Brotherton-Ratcliffe and Vivian Amos Sureshkumar (2026). The sliders set a planar grating — mean index, thickness, recording geometry, slant Ψ, index modulation n₁ and Kogelnik's optical densities D₀, D₁ — and the panel plots the diffraction efficiency across the replay band for four two-wave descriptions next to a rigorous coupled-wave (RCWA) solution of the same boundary-value problem.</p>
+      <p><strong>Independence.</strong> This is an independent implementation written from the paper's equations and validated against the values printed in it: the twelve figure configurations reachable from the “Paper figures” menu reproduce the rms departures quoted in the paper's Figs. 6, 9, 12, 17, 20 and 23 to the printed precision (see the “paper” column in the table above after pressing <em>Verify at L = 10</em>). The authors' own code deposit (release v1.1) is a separate code base.</p>
+      <p><strong>Conventions.</strong> Angles θc, θr are measured from the directed fringe normal; the slant Ψ = 0 is an unslanted reflection grating and Ψ = 90° an unslanted transmission grating; a slant is classified reflection or transmission by the sign of c<sub>S</sub><sup>K</sup> (eq. 46). In family mode the plate is replayed by its own recording beam: θc = Ψ + θ<sub>in</sub>, θr = θc, Bragg at λr. The optical densities follow eq. (175), χ = D λc cos(θc − Ψ)/(2πd), the density accumulated along the reference ray. The rigorous reference embeds the grating in an index-matched lossless exterior (Appendix A.1), so no curve carries a plate-surface Fresnel term. At Ψ = 0 exactly the rigorous curve is the chain-matrix reflectance of Appendix A.6.</p>
+      <p><strong>The four models.</strong> <em>PSM</em>: the parallel-stacked-mirror model as published (Brotherton-Ratcliffe, J. Mod. Opt. 2012; Appl. Opt. 2015), extended here to slant, loss and both polarisations. <em>PSM*</em>: the same construction with its one avoidable assumption removed — the coupling constant carries the exact factor ζ = cos θc/(α cos θr), unity at Bragg (paper Section 5). <em>Kogelnik</em>: the classical coupled-wave theory (Bell Syst. Tech. J. 1969). <em>TCWT</em>: a two-wave truncation of the exact harmonic-index equations, which differs from Kogelnik by the term iκ²/β in σ and by the obliquity factor in π (Section 6).</p>
+      <p><strong>How the rigorous curve is computed.</strong> The Python reference module <code>psmgrating/rcwa.py</code> runs unchanged inside your browser through Pyodide (Floquet expansion |l| ≤ L, dense eigen-solve, eigenmode anchoring). A 301-point preview at L = 4 appears first; <em>Verify at L = 10</em> recomputes the full grid at the paper's production truncation. Nothing leaves your machine.</p>
+      <p class="muted">Preview accompanying a manuscript that has not yet been peer-reviewed: the results it illustrates are the authors' and are subject to review. Code: MIT; data: CC BY 4.0. Version 0.1.0.</p>
+    </div>
+  </section>
+</main>
+<footer>Volume Grating Explorer · an independent implementation of Brotherton-Ratcliffe &amp; Amos Sureshkumar (2026) · every configuration is a permanent link.</footer>
+<script src="vendor/uPlot.iife.min.js"></script>
+<script type="module" src="src/main.js"></script>
+</body>
+</html>

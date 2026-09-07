@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+title: Volume Grating Explorer (psmgrating)
+message: If you use this software, please cite the paper below and this repository.
+type: software
+authors:
+  - family-names: Amos Sureshkumar
+    given-names: Vivian
+    affiliation: Holography Research Group, De Montfort University, Leicester, UK
+version: 0.1.0
+date-released: 2026-09-13
+license: MIT
+repository-code: https://github.com/vivian4fb/PSM_hosting
+abstract: >
+  Independent implementation of the parallel-stacked-mirror (PSM, PSM*) models,
+  Kogelnik's coupled-wave theory, a truncated coupled-wave theory (TCWT) and a
+  rigorous coupled-wave (RCWA) reference for slanted, absorbing planar volume
+  gratings, validated against the printed values of the paper cited below.
+references:
+  - type: article
+    title: "Slanted planar volume gratings: parallel-stacked-mirror models versus traditional coupled wave descriptions"
+    authors:
+      - family-names: Brotherton-Ratcliffe
+        given-names: David
+      - family-names: Amos Sureshkumar
+        given-names: Vivian
+    year: 2026
+    notes: manuscript, submission pending; DOI to be added at publication

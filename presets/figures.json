@@ -1,0 +1,222 @@
+{
+ "families": {
+  "family1": {
+   "n0": 1.5,
+   "lam_r_nm": 500.0,
+   "theta_air_deg": 56.7,
+   "theta_in_deg": 33.86271802491377,
+   "band_nm": [
+    400.0,
+    600.0
+   ],
+   "N": 1201,
+   "admissible_transmission_psi_min": 67.5
+  },
+  "family2": {
+   "n0": 1.62,
+   "lam_r_nm": 633.0,
+   "theta_air_deg": 40.0,
+   "theta_in_deg": 23.37718893088029,
+   "band_nm": [
+    533.0,
+    733.0
+   ],
+   "N": 1201,
+   "admissible_transmission_psi_min": 77.5
+  }
+ },
+ "figures": [
+  {
+   "id": "fig06L",
+   "fig": "Fig. 6 left",
+   "caption": "Phase transmission grating, pi, 2 propagating orders",
+   "family": "family1",
+   "psi_deg": 85.0,
+   "d_um": 20.0,
+   "n1": 0.065,
+   "D0": 0.0,
+   "D1": 0.0,
+   "pol": "pi",
+   "printed": {
+    "psm_star": 0.0899,
+    "tcwt": 0.0285
+   }
+  },
+  {
+   "id": "fig06R",
+   "fig": "Fig. 6 right",
+   "caption": "Phase transmission grating, pi, 7 propagating orders (inadmissible slant)",
+   "family": "family1",
+   "psi_deg": 65.0,
+   "d_um": 20.0,
+   "n1": 0.065,
+   "D0": 0.0,
+   "D1": 0.0,
+   "pol": "pi",
+   "printed": {
+    "psm_star": 0.3386,
+    "tcwt": 0.3454
+   }
+  },
+  {
+   "id": "fig09L",
+   "fig": "Fig. 9 left",
+   "caption": "Absorption transmission grating, sigma",
+   "family": "family1",
+   "psi_deg": 85.0,
+   "d_um": 20.0,
+   "n1": 0.0,
+   "D0": 1.0986122886681098,
+   "D1": 1.0986122886681098,
+   "pol": "sigma",
+   "printed": {
+    "psm_star": 0.00026,
+    "tcwt": 7.4e-05
+   }
+  },
+  {
+   "id": "fig09R",
+   "fig": "Fig. 9 right",
+   "caption": "Absorption transmission grating, sigma (inadmissible slant)",
+   "family": "family1",
+   "psi_deg": 65.0,
+   "d_um": 20.0,
+   "n1": 0.0,
+   "D0": 1.0986122886681098,
+   "D1": 1.0986122886681098,
+   "pol": "sigma",
+   "printed": {
+    "psm_star": 0.0027,
+    "tcwt": 7.2e-05
+   }
+  },
+  {
+   "id": "fig12L",
+   "fig": "Fig. 12 left",
+   "caption": "Mixed transmission grating, pi",
+   "family": "family1",
+   "psi_deg": 85.0,
+   "d_um": 20.0,
+   "n1": 0.065,
+   "D0": 1.0986122886681098,
+   "D1": 1.0986122886681098,
+   "pol": "pi",
+   "printed": {
+    "psm_star": 0.0111,
+    "tcwt": 0.0037
+   }
+  },
+  {
+   "id": "fig12R",
+   "fig": "Fig. 12 right",
+   "caption": "Mixed transmission grating, pi (inadmissible slant)",
+   "family": "family1",
+   "psi_deg": 65.0,
+   "d_um": 20.0,
+   "n1": 0.065,
+   "D0": 1.0986122886681098,
+   "D1": 1.0986122886681098,
+   "pol": "pi",
+   "printed": {
+    "psm_star": 0.0643,
+    "tcwt": 0.0677
+   }
+  },
+  {
+   "id": "fig17L",
+   "fig": "Fig. 17 left",
+   "caption": "Phase reflection grating, sigma, order leaves at -38 deg in air",
+   "family": "family1",
+   "psi_deg": -29.0,
+   "d_um": 20.0,
+   "n1": 0.065,
+   "D0": 0.0,
+   "D1": 0.0,
+   "pol": "sigma",
+   "printed": {
+    "psm_star": 0.0341,
+    "tcwt": 0.0715
+   }
+  },
+  {
+   "id": "fig17R",
+   "fig": "Fig. 17 right",
+   "caption": "Phase reflection grating, sigma, order leaves at +37 deg in air",
+   "family": "family1",
+   "psi_deg": -5.0,
+   "d_um": 20.0,
+   "n1": 0.065,
+   "D0": 0.0,
+   "D1": 0.0,
+   "pol": "sigma",
+   "printed": {
+    "psm_star": 0.0436,
+    "tcwt": 0.0788
+   }
+  },
+  {
+   "id": "fig20L",
+   "fig": "Fig. 20 left",
+   "caption": "Absorption reflection grating, sigma",
+   "family": "family1",
+   "psi_deg": -29.0,
+   "d_um": 20.0,
+   "n1": 0.0,
+   "D0": 1.0986122886681098,
+   "D1": 1.0986122886681098,
+   "pol": "sigma",
+   "printed": {
+    "psm_star": 1.2e-05,
+    "tcwt": 3.5e-05
+   }
+  },
+  {
+   "id": "fig20R",
+   "fig": "Fig. 20 right",
+   "caption": "Absorption reflection grating, sigma",
+   "family": "family1",
+   "psi_deg": -5.0,
+   "d_um": 20.0,
+   "n1": 0.0,
+   "D0": 1.0986122886681098,
+   "D1": 1.0986122886681098,
+   "pol": "sigma",
+   "printed": {
+    "psm_star": 1.6e-06,
+    "tcwt": 3.9e-05
+   }
+  },
+  {
+   "id": "fig23L",
+   "fig": "Fig. 23 left",
+   "caption": "Mixed reflection grating, sigma",
+   "family": "family1",
+   "psi_deg": -29.0,
+   "d_um": 20.0,
+   "n1": 0.065,
+   "D0": 1.0986122886681098,
+   "D1": 1.0986122886681098,
+   "pol": "sigma",
+   "printed": {
+    "psm_star": 0.0042,
+    "tcwt": 0.008
+   }
+  },
+  {
+   "id": "fig23R",
+   "fig": "Fig. 23 right",
+   "caption": "Mixed reflection grating, sigma",
+   "family": "family1",
+   "psi_deg": -5.0,
+   "d_um": 20.0,
+   "n1": 0.065,
+   "D0": 1.0986122886681098,
+   "D1": 1.0986122886681098,
+   "pol": "sigma",
+   "printed": {
+    "psm_star": 0.0049,
+    "tcwt": 0.0087
+   }
+  }
+ ]
+}

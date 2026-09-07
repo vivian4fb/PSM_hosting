@@ -1,0 +1,17 @@
+{
+  "name": "psm-explorer",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Volume Grating Explorer: PSM, PSM*, Kogelnik and TCWT against a rigorous RCWA reference, in the browser",
+  "scripts": {
+    "test": "node --test tests/js/models.test.js",
+    "fixtures": "cd python && python tools/make_fixtures.py",
+    "serve": "python -m http.server 8080",
+    "smoke": "node tests/js/smoke.mjs"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "puppeteer-core": "^23.11.1"
+  }
+}
